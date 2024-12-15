@@ -51,7 +51,7 @@ public class HomeWorkTests {
         $(".table").$(byText("Date of Birth")).sibling(0).shouldHave(text("31 December,1985"));
         $(".table").$(byText("Subjects")).sibling(0).shouldHave(text("Literature"));
         $(".table").$(byText("Hobbies")).sibling(0).shouldHave(text("Music"));
-        $(".table").$(byText("Picture")).sibling(0).shouldHave(text("my_photo.png"));
+        $(".table").$(byText("Picture")).sibling(0).shouldHave(text("maria.png"));
         $(".table").$(byText("Address")).sibling(0).shouldHave(text("Russia"));
         $(".table").$(byText("State and City")).sibling(0).shouldHave(text("Haryana Karnal"));
     }
