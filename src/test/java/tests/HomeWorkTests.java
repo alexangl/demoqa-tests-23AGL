@@ -5,7 +5,6 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-/* import static com.codeborne.selenide.Condition.text; */
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -17,13 +16,15 @@ public class HomeWorkTests {
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = " https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
-        Configuration.holdBrowserOpen = true;
-        Configuration.timeout = 5000; // default 4000
+        Configuration.holdBrowserOpen = false;
+
     }
 
     @Test
     void fillFormTest() {
         open("/automation-practice-form");
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
         $("#firstName").setValue("Maria");
         $("#lastName").setValue("Petrova");
         $("#userEmail").setValue("mp@gmail.com");
@@ -36,7 +37,7 @@ public class HomeWorkTests {
         $$(".react-datepicker__day:not(.react-datepicker__day--outside-month)").findBy(text("31")).click();
         $("#subjectsInput").setValue("Literature").pressEnter();
         $("#hobbiesWrapper").$(byText("Music")).click();
-        $("#uploadPicture").uploadFromClasspath("my_photo.png");
+        $("#uploadPicture").uploadFromClasspath("maria.png");
         $("#currentAddress").setValue("Russia");
         $("#react-select-3-input").setValue("Haryana").pressEnter();
         $("#react-select-4-input").setValue("Karnal").pressEnter();
